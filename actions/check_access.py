@@ -17,6 +17,10 @@ class ActionGetCustomerDataFromDB(Action):
         account_id_from_user = str(tracker.get_slot("account_id_from_user"))
         logging.info(f"This is an info message: account_id_from_user: {account_id_from_user}")
 
+        if not customer_id:
+            dispatcher.utter_message("Customer ID is missing.")
+            return []
+
         # Filter data for the given customer ID
         customer_info = df[df["customer_id"] == int(customer_id)]
 
