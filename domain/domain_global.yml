@@ -4,8 +4,8 @@ slots:
   customer_id:
     type: text
     mappings:
-      - type: from_llm
-    initial_value: 123 # this is manually set here as we usually get this from the an API call
+      - type: custom
+        action: action_get_customer_info
 
 responses:
 
