@@ -10,7 +10,7 @@ class ActionGetCustomerInfo(Action):
         #Load CSV file
         file_path = "db/customers_info.csv"  # get information from your DBs
         df = pd.read_csv(file_path)
-        customer_id = tracker.get_slot("customer_id")
+        customer_id = 125 # this should be from cookie or session
 
         # Filter data for the given customer ID
         customer_info = df[df["customer_id"] == int(customer_id)]
@@ -29,9 +29,8 @@ class ActionGetCustomerInfo(Action):
                     f"First Name: {first_name}\n"
                     f"Last Name: {last_name}\n")
 
-        #dispatcher.utter_message(response)
-
         # Set the retrieved name in a slot
         return [ SlotSet("customer_first_name", first_name),
                 SlotSet("customer_last_name", last_name),
-                SlotSet("account_id_from_db", account_id_from_db)]
+                SlotSet("account_id_from_db", account_id_from_db),
+                SlotSet("customer_id", customer_id)]

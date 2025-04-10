@@ -2,6 +2,7 @@ flows:
   check_balance:
     description: check the balance of the user's account
     steps:
+      - action: action_get_customer_info
       - collect: account_id_from_user
         ask_before_filling: True
       - action: action_get_data_from_db
