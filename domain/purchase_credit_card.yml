@@ -1,0 +1,83 @@
+version: "3.1"
+slots:
+
+  credit_card_type:
+    type: categorical
+    mappings: 
+      - type: from_llm
+    values: 
+      - Visa
+      - Master card
+      - American express
+  
+  delivery_type:
+    type: categorical
+    mappings: 
+      - type: from_llm
+    values: 
+      - Home
+      - Bank
+
+  home_address:
+    type: text
+    mappings: 
+      - type: from_llm
+
+  provide_confirmation:
+    type: bool
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_credit_card_type:
+    - text:
+        Certainly, I can help you with that. 
+        
+        what kind of credit card you are looking to buy
+      buttons:
+      - title: "Visa"
+        payload: "/SetSlots(credit_card_type=visa)"
+      - title: "Master card"
+        payload: "/SetSlots(credit_card_type=master_card)"
+      - title: "American express"
+        payload: "/SetSlots(credit_card_type=american_express)"
+  
+  utter_ask_delivery_type:
+    - text: Okay let's move to the next step of the credit card purchase 
+            
+            Would you like your new credit card to be delivered
+      buttons:
+      - title: "at home"
+        payload: "/SetSlots(delivery_type=home)"
+      - title: "to the closest bank near you"
+        payload: "/SetSlots(delivery_type=bank)"
+
+  utter_ask_home_address:
+    - text: Understood! 
+    
+            Can you provide me your full address please?
+
+  utter_info_details:
+    - text: "Let's make sure all information provided are in order
+
+            Credit card type: {credit_card_type}
+
+            Delivery type: {delivery_type}
+
+            Home address: {home_address}"
+
+  utter_ask_provide_confirmation:
+    - text: "Can you confirm that all the information captured above is accurate:"
+      buttons:
+        - title: "Yes"
+          payload: "/SetSlots(provide_confirmation=True)"
+        - title: "No"
+          payload: "/SetSlots(provide_confirmation=False)"
+
+  utter_order_confirmation:
+    - text: "Your request for a {credit_card_type} credit card has been successfully submitted.
+            The card will be delivered to your {delivery_type} at {home_address}.
+
+            If you have any further questions, please do not hesitate to contact us."
+
+  
