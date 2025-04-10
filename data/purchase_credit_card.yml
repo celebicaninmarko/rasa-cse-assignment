@@ -1,0 +1,23 @@
+flows:
+  purchase_credit_card:
+    description: help user purchase a credit card
+    steps:
+      - collect: credit_card_type
+        description: type of the credit card
+      - collect: delivery_type
+        description: delivery location
+      - collect: home_address
+        description: home address location
+      - action: utter_info_details
+      - collect: provide_confirmation
+        description: confirm collected information
+        next:
+          - if: slots.provide_confirmation == false
+            then:
+              - action: utter_more_help_needed_handoff_pattern
+                next: "END"
+          - else: 
+            - action: utter_order_confirmation
+              next: "END"
+      
+
