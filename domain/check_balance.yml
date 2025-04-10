@@ -43,11 +43,11 @@ responses:
     - text: |
         Alright. 
         I can only check the balance for you for the accounts you own.
-        Unfortunaltely, The id you just provided "{account_id_from_user}" is not in the list of your accounts.
+        Unfortunately, The id you just provided "{account_id_from_user}" is not in the list of your accounts.
 
   utter_ask_provide_account_id:
     - text: |
-        You are actually authenticated, in case you don't recall your account id
+        You are actually authenticated. In case you don't recall your account id
         I can look it up for you.
         Would you like that?
       buttons:
@@ -67,7 +67,7 @@ responses:
         I did a quick check and you are indeed the owner of the account number you provided.
         Let's proceed.
   utter_provide_balance:
-    - text: "Your current balance is {balance} euros"
+    - text: "Your current balance is {balance} euros."
 
   
 actions:
