@@ -49,18 +49,18 @@ test_cases:
           value: Master card
     - bot_uttered:
         utter_name: utter_ask_delivery_type
-  - user: Bank
+  - user: Home
     assertions:
     - slot_was_set:
         - name: delivery_type
-          value: Bank
+          value: Home
     - bot_uttered:
         utter_name: utter_ask_home_address
-  - user: 88 bank avenue, Paris
+  - user: 12, street Jeanne, Paris
     assertions:
     - slot_was_set:
         - name: home_address
-          value: 88 bank avenue, Paris
+          value: 12, street Jeanne, Paris
     - bot_uttered:
         utter_name: utter_info_details
   - user: "No"
