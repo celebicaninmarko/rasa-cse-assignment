@@ -33,7 +33,7 @@ responses:
     - text:
         Certainly, I can help you with that. 
         
-        what kind of credit card you are looking to buy
+        What kind of credit card you are looking to buy?
       buttons:
       - title: "Visa"
         payload: "/SetSlots(credit_card_type=visa)"
@@ -43,9 +43,9 @@ responses:
         payload: "/SetSlots(credit_card_type=american_express)"
   
   utter_ask_delivery_type:
-    - text: Okay let's move to the next step of the credit card purchase 
+    - text: Okay let's move to the next step of the credit card purchase. 
             
-            Would you like your new credit card to be delivered
+            Would you like your new credit card to be delivered?
       buttons:
       - title: "at home"
         payload: "/SetSlots(delivery_type=home)"
@@ -58,7 +58,7 @@ responses:
             Can you provide me your full address please?
 
   utter_info_details:
-    - text: "Let's make sure all information provided are in order
+    - text: "Let's make sure all information provided are in order.
 
             Credit card type: {credit_card_type}
 

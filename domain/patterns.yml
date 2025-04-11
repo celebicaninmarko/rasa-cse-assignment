@@ -15,7 +15,7 @@ responses:
         I am your virtual AI assistant that can help you with
         - credit card purchase
         - balance check
-        How may I help you, today ?
+        How may I help you, today?
   
   utter_more_help_needed_handoff_pattern: # add more information here, if you need this to connect to specific channel..
     - text: |
